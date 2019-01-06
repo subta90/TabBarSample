@@ -57,6 +57,10 @@ extension MainTabBarViewController: UITabBarDelegate {
         cycleFromViewController(newChildViewController: destinationViewController)
     }
     
+    /// 次に子として管理するViewControllerを押下されたTabBarItemから判定し返す
+    ///
+    /// - Parameter itemTag: 押下されたTabBarItemのtag
+    /// - Returns: 次に子として管理するViewController
     private func createDestinationViewController(from itemTag: TabBarItemTag) -> UIViewController {
         
         switch itemTag {
@@ -73,6 +77,9 @@ extension MainTabBarViewController: UITabBarDelegate {
         }
     }
     
+    /// 現在表示されているViewControllerを親子関係から削除し、引数として与えられたViewControllerを子として追加する
+    ///
+    /// - Parameter newChildViewController: 子として管理する対象ViewController
     private func cycleFromViewController(newChildViewController: UIViewController) {
         currentChildViewController?.willMove(toParent: nil)
         
